@@ -1,0 +1,25 @@
+{
+  "name": "camomile",
+  "version": "0.0.0",
+  "description": "The workflow automation toolset",
+  "author": "Nikita Karamov <nick@karamoff.dev>",
+  "license": "MIT",
+  "repository": "camomilejs/camomile",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "camomile",
+    "build",
+    "build-system",
+    "build-tool",
+    "automation",
+    "pipeline"
+  ]
+}
