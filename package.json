@@ -9,11 +9,11 @@
   "files": [
     "index.js"
   ],
-  "scripts": {
-
-  },
+  "scripts": {},
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "np": "^6.4.0"
+  },
   "keywords": [
     "camomile",
     "build",
