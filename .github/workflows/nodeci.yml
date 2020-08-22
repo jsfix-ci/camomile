@@ -1,0 +1,47 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - release/*
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+      - 'LICENSE'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  build:
+    name: Run tests on Node.js v${{ matrix.node }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node: ['14', '12', '10']
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install Yarn
+        uses: bahmutov/npm-install@v1.1.0
+      - name: Test
+        run: yarn test
+#      - name: Install Codecov
+#        run: yarn add --dev codecov
+#        if: matrix.node == '12'
+#      - name: Upload coverage data
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#        run: yarn codecov
+#        if: matrix.node == '12'
