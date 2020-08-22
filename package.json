@@ -13,7 +13,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "np": "^6.4.0"
+    "np": "^6.4.0",
+    "typescript": "^3.9.7"
   },
   "keywords": [
     "camomile",
