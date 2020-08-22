@@ -1,6 +1,6 @@
 {
   "name": "camomile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The workflow automation toolset",
   "author": "Nikita Karamov <nick@karamoff.dev>",
   "license": "MIT",
