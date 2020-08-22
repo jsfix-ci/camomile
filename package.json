@@ -5,10 +5,19 @@
   "author": "Nikita Karamov <nick@karamoff.dev>",
   "license": "MIT",
   "repository": "camomilejs/camomile",
+  "main": "dist/camomile.js",
+  "module": "dist/camomile.mjs",
+  "types": "dist/camomile.d.ts",
+  "bin": {
+    "camomile": "dist/bin/index.js"
+  },
   "files": [
+    "dist",
     "index.js"
   ],
   "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "test": "run-p test:*",
     "test:lint": "eslint ."
   },
@@ -16,12 +25,14 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.9.1",
     "@typescript-eslint/parser": "^3.9.1",
+    "@wessberg/rollup-plugin-ts": "^1.3.2",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-plugin-import": "^2.22.0",
     "np": "^6.4.0",
     "npm-run-all": "^4.1.5",
+    "rollup": "^2.26.5",
     "typescript": "^3.9.7"
   },
   "keywords": [
@@ -31,5 +42,8 @@
     "build-tool",
     "automation",
     "pipeline"
+  ],
+  "browserslist": [
+    "maintained node versions"
   ]
 }
