@@ -5,7 +5,6 @@
   "author": "Nikita Karamov <nick@karamoff.dev>",
   "license": "MIT",
   "repository": "camomilejs/camomile",
-  "main": "index.js",
   "files": [
     "index.js"
   ],
