@@ -1,6 +1,6 @@
 {
 	"name": "camomile",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "The workflow automation toolset",
 	"license": "BSD-3-Clause",
 	"author": "Nikita Karamov <nick@karamoff.dev>",
