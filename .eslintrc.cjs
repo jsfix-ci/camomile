@@ -4,7 +4,7 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
-	extends: ["airbnb-base"],
+	extends: ["airbnb-base", "prettier"],
 	parserOptions: {
 		ecmaVersion: 2020,
 		sourceType: "module",
@@ -21,6 +21,7 @@ module.exports = {
 				"airbnb-typescript/base",
 				"plugin:@typescript-eslint/eslint-recommended",
 				"plugin:@typescript-eslint/recommended",
+				"prettier",
 			],
 			rules: {
 				"import/prefer-default-export": 0,
