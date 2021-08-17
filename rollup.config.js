@@ -16,27 +16,25 @@ const banner = `/**
  *
  * @type {import('Rollup').Plugin}
  */
-const addCliEntry = () => {
-	return {
-		buildStart() {
-			this.emitFile({
-				fileName: "bin/camomile",
-				id: "src/cli.ts",
-				preserveSignature: false,
-				type: "chunk",
-			});
-		},
-		name: "add-cli-entry",
-		renderChunk(code, chunkInfo) {
-			if (chunkInfo.fileName === "bin/camomile") {
-				return {
-					code: "#!/usr/bin/env node\n\n" + code,
-				};
-			}
-			return null;
-		},
-	};
-};
+const addCliEntry = () => ({
+	buildStart() {
+		this.emitFile({
+			fileName: "bin/camomile",
+			id: "src/cli.ts",
+			preserveSignature: false,
+			type: "chunk",
+		});
+	},
+	name: "add-cli-entry",
+	renderChunk(code, chunkInfo) {
+		if (chunkInfo.fileName === "bin/camomile") {
+			return {
+				code: `#!/usr/bin/env node\n\n${code}`,
+			};
+		}
+		return null;
+	},
+});
 
 /**
  * Default build configuration
@@ -59,7 +57,11 @@ const build = {
 			camomile: ["./src/camomile.ts"],
 		},
 	},
-	plugins: [commonjs({ include: "node_modules/**" }), typescript()],
+	plugins: [
+		commonjs({ include: "node_modules/**" }),
+		typescript(),
+		addCliEntry(),
+	],
 };
 
 export default build;
