@@ -1,1 +1,1 @@
-console.info('You have launched the camomile cli');
+console.info("You have launched the camomile cli");

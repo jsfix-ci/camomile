@@ -14,8 +14,7 @@ building, linting, testing, and packaging.
 Think _Gulp_ or _Make_, but more compact, more customizable, yet less annoying
 and easy-to-use.
 
-Why?
-----
+## Why?
 
 To be honest, I just find it annoying, that tools like _Gulp_ take loads of
 space inside my `node_modules`, tools like _Make_ aren't JS-friendly, and tools
@@ -25,8 +24,7 @@ or a simple script), it's hard to find a lightweight yet robust and modular
 tool. _Camomile_ is the solution to all the stress and headaches one gets when
 developing something simple for modern web 🍵
 
-Ambitions
----------
+## Ambitions
 
 _Camomile_ is not a ready project, but rather a list of ambitions. Here is a
 list of features we want _Camomile_ to have, in comparison to other similar
@@ -50,7 +48,6 @@ tools:
 - [ ] like _Snowpack_, _Camomile_ is fast. The defined tasks run in parallel,
       and we're ready to write native code to speed up the slow chunks
 
-License
--------
+## License
 
 [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) © 2021, Nikita Karamov and other contributors

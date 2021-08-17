@@ -17,25 +17,25 @@ const banner = `/**
  * @type {import('Rollup').Plugin}
  */
 const addCliEntry = () => {
-  return {
-    buildStart() {
-      this.emitFile({
-        fileName: "bin/camomile",
-        id: "src/cli.ts",
-        preserveSignature: false,
-        type: "chunk",
-      });
-    },
-    name: "add-cli-entry",
-    renderChunk(code, chunkInfo) {
-      if (chunkInfo.fileName === "bin/camomile") {
-        return {
-          code: "#!/usr/bin/env node\n\n" + code,
-        };
-      }
-      return null;
-    },
-  };
+	return {
+		buildStart() {
+			this.emitFile({
+				fileName: "bin/camomile",
+				id: "src/cli.ts",
+				preserveSignature: false,
+				type: "chunk",
+			});
+		},
+		name: "add-cli-entry",
+		renderChunk(code, chunkInfo) {
+			if (chunkInfo.fileName === "bin/camomile") {
+				return {
+					code: "#!/usr/bin/env node\n\n" + code,
+				};
+			}
+			return null;
+		},
+	};
 };
 
 /**
@@ -44,26 +44,22 @@ const addCliEntry = () => {
  * @type {import('rollup').RollupOptions}
  */
 const build = {
-  input: {
-    "camomile.js": "./src/camomile.ts",
-  },
-  output: {
-    banner,
-    chunkFileNames: "shared/[name].js",
-    dir: "dist",
-    entryFileNames: "[name]",
-    externalLiveBindings: false,
-    format: "es",
-    freeze: false,
-    manualChunks: {
-      camomile: ["./src/camomile.ts"],
-    },
-  },
-  plugins: [
-    commonjs({ include: "node_modules/**" }),
-    typescript(),
-    addCliEntry(),
-  ],
+	input: {
+		"camomile.js": "./src/camomile.ts",
+	},
+	output: {
+		banner,
+		chunkFileNames: "shared/[name].js",
+		dir: "dist",
+		entryFileNames: "[name]",
+		externalLiveBindings: false,
+		format: "es",
+		freeze: false,
+		manualChunks: {
+			camomile: ["./src/camomile.ts"],
+		},
+	},
+	plugins: [commonjs({ include: "node_modules/**" }), typescript()],
 };
 
 export default build;
