@@ -18,7 +18,8 @@
 		"build": "rollup -c",
 		"dev": "rollup -c -w",
 		"test": "run-p test:*",
-		"test:lint": "eslint ."
+		"test:eslint": "eslint .",
+		"test:prettier": "prettier --check ."
 	},
 	"dependencies": {},
 	"devDependencies": {
