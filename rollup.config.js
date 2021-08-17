@@ -1,39 +1,69 @@
-import shebang from 'rollup-plugin-preserve-shebang';
-import ts from 'rollup-plugin-ts';
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
 
-const pkg = require('./package.json');
+import pkg from "./package.json";
 
-export default [
-  {
-    input: './src/camomile.ts',
-    output: [
-      {
-        exports: 'named',
-        format: 'cjs',
-        file: pkg.main,
-      },
-      {
-        exports: 'named',
-        format: 'esm',
-        file: pkg.module,
-      },
-    ],
-    plugins: [
-      ts(),
-    ],
+const banner = `/**
+* Camomile, the workflow automation toolset
+* https://github.com/camomilejs/camomile
+* 
+* @version ${pkg.version}
+* @license ${pkg.license}
+*/`;
+
+/**
+ * Adds extra file for the CLI initialization with the proper shebang
+ *
+ * @type {import('Rollup').Plugin}
+ */
+const addCliEntry = () => {
+  return {
+    buildStart() {
+      this.emitFile({
+        fileName: "bin/camomile",
+        id: "src/cli.ts",
+        preserveSignature: false,
+        type: "chunk",
+      });
+    },
+    name: "add-cli-entry",
+    renderChunk(code, chunkInfo) {
+      if (chunkInfo.fileName === "bin/camomile") {
+        return {
+          code: "#!/usr/bin/env node\n\n" + code,
+        };
+      }
+      return null;
+    },
+  };
+};
+
+/**
+ * Default build configuration
+ *
+ * @type {import('rollup').RollupOptions}
+ */
+const build = {
+  input: {
+    "camomile.js": "./src/camomile.ts",
   },
-  {
-    input: './src/cli.ts',
-    output: [
-      {
-        format: 'cjs',
-        file: pkg.bin.camomile,
-      },
-    ],
-    plugins: [
-      shebang(),
-      ts({
-        tsconfig: (config) => ({ ...config, declaration: false }),
-      }),
-    ],
-  }];
+  output: {
+    banner,
+    chunkFileNames: "shared/[name].js",
+    dir: "dist",
+    entryFileNames: "[name]",
+    externalLiveBindings: false,
+    format: "es",
+    freeze: false,
+    manualChunks: {
+      camomile: ["./src/camomile.ts"],
+    },
+  },
+  plugins: [
+    commonjs({ include: "node_modules/**" }),
+    typescript(),
+    addCliEntry(),
+  ],
+};
+
+export default build;

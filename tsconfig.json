@@ -1,25 +1,19 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
-    "declaration": true,
-    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
-    "module": "ESNext",
+    "lib": ["ESNext"],
+    "module": "ES2020",
     "moduleResolution": "Node",
+    "noEmitOnError": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "target": "ES2017"
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "resolveJsonModule": true,
+    "target": "ES2019"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "rollup.config.ts"],
+  "exclude": ["dist", "node_modules"]
 }
