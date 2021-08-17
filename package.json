@@ -23,9 +23,12 @@
 		"prettier": "prettier --check .",
 		"test": "echo 'No tests yet...'"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"commander": "^8.1.0"
+	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^20.0.0",
+		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-typescript": "^8.2.5",
 		"@typescript-eslint/eslint-plugin": "^4.29.2",
 		"@typescript-eslint/parser": "^4.29.2",

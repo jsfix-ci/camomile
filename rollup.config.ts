@@ -1,4 +1,5 @@
 import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 import typescript from "@rollup/plugin-typescript";
 import { Plugin, RollupOptions } from "rollup";
 
@@ -47,6 +48,7 @@ const build: RollupOptions = {
 	input: {
 		"camomile.js": "./src/camomile.ts",
 	},
+	external: ["commander"],
 	output: {
 		banner,
 		chunkFileNames: "shared/[name].js",
@@ -60,6 +62,7 @@ const build: RollupOptions = {
 		},
 	},
 	plugins: [
+		json(),
 		commonjs({ include: "node_modules/**" }),
 		typescript(),
 		addCliEntry(),
