@@ -3,48 +3,41 @@ name: Node.js CI
 on:
   push:
     branches:
-      - master
-      - develop
-      - release/*
-    paths-ignore:
-      - 'docs/**'
-      - 'README.md'
-      - 'LICENSE'
-      - '.gitignore'
+      - main
+      - v*
   pull_request:
     branches:
-      - master
-  schedule:
-    - cron: '0 0 * * 1'
+      - main
+      - v*
 
 jobs:
   build:
-    name: Run tests on Node.js v${{ matrix.node }} and ${{ matrix.os }}
+    name: Run tests on ${{ matrix.os }} with Node.js v${{ matrix.node }}
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node: ['14', '12', '10']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node:
+          - 16.x
+          - 14.x
+          - 12.x
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
 
     steps:
       - name: Configure git line-breaks for Windows
         run: git config --global core.autocrlf false
         if: matrix.os == 'windows-latest'
-      - uses: actions/checkout@v2
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js v${{ matrix.node }}
+        uses: actions/setup-node@v2.4.0
         with:
           node-version: ${{ matrix.node }}
-      - name: Install Yarn
-        uses: bahmutov/npm-install@v1.1.0
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
       - name: Test
         run: yarn test
-#      - name: Install Codecov
-#        run: yarn add --dev codecov
-#        if: matrix.node == '12'
-#      - name: Upload coverage data
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-#        run: yarn codecov
-#        if: matrix.node == '12'
