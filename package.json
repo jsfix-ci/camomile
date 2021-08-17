@@ -43,8 +43,5 @@
     "build-tool",
     "automation",
     "pipeline"
-  ],
-  "browserslist": [
-    "maintained node versions"
   ]
 }
