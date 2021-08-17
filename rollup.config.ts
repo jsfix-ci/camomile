@@ -23,7 +23,7 @@ function addCliEntry(): Plugin {
 	return {
 		buildStart() {
 			this.emitFile({
-				fileName: "bin/camomile",
+				fileName: "bin/camomile.js",
 				id: "src/cli.ts",
 				preserveSignature: false,
 				type: "chunk",
@@ -31,7 +31,7 @@ function addCliEntry(): Plugin {
 		},
 		name: "add-cli-entry",
 		renderChunk(code, chunkInfo) {
-			if (chunkInfo.fileName === "bin/camomile") {
+			if (chunkInfo.fileName === "bin/camomile.js") {
 				return {
 					code: `#!/usr/bin/env node\n\n${code}`,
 				};

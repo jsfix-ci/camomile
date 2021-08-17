@@ -6,7 +6,9 @@
 	"author": "Nikita Karamov <nick@karamoff.dev>",
 	"repository": "camomilejs/camomile",
 	"type": "module",
-	"bin": "./dist/bin/camomile",
+	"bin": {
+		"camomile": "./dist/bin/camomile.js"
+	},
 	"exports": "./dist/camomile.js",
 	"files": [
 		"dist"
