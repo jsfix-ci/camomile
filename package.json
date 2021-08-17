@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "The workflow automation toolset",
   "author": "Nikita Karamov <nick@karamoff.dev>",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "repository": "camomilejs/camomile",
   "main": "dist/camomile.js",
   "module": "dist/camomile.mjs",

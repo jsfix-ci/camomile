@@ -14,3 +14,8 @@
 it has fewer dependencies so that resolution is quicker and the installation size is smaller
 it is thoroughly typed to minimize configuration errors
 its API is even simpler letting you create your plugins in no time.
+
+License
+-------
+
+[BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) © 2021, Nikita Karamov and other contributors
