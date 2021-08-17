@@ -1,5 +1,5 @@
 import shebang from 'rollup-plugin-preserve-shebang';
-import ts from '@wessberg/rollup-plugin-ts';
+import ts from 'rollup-plugin-ts';
 
 const pkg = require('./package.json');
 
