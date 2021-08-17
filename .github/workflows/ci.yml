@@ -32,18 +32,19 @@ jobs:
 
   test:
     name: Run tests on ${{ matrix.os }} with Node.js v${{ matrix.node }}
+    needs: lint
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
         node:
           - 16.x
-          - lts/fermium
-          - lts/erbium
+          # - lts/fermium
+          # - lts/erbium
         os:
           - ubuntu-latest
-          - windows-latest
-          - macos-latest
+          # - windows-latest
+          # - macos-latest
 
     steps:
       - name: Configure git line-breaks for Windows
