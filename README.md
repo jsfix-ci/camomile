@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/camomile"><img alt="npm" src="https://img.shields.io/npm/v/camomile?style=for-the-badge"></a>
+  <a href="https://www.npmjs.com/package/camomile"><img alt="npm" src="https://img.shields.io/npm/v/camomile?style=for-the-badge&labelColor=black"></a>
 </p>
 
 > **WARNING:** This project is WIP and under no circumstances production-ready.
