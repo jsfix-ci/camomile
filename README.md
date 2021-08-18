@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Camomile" height="150" width="150" src="https://media.githubusercontent.com/media/camomilejs/brand/master/logo/logo.png">
+  <img alt="camomile" title="Camomile" height="120" src="https://raw.githubusercontent.com/camomilejs/brand/main/logotype.png">
 </h1>
 
 <p align="center">
